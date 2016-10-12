@@ -7,4 +7,4 @@ npm install
 npm start
 ```
 
-then visit http://localhost:3000
+then visit [http://localhost:3000](http://localhost:3000)
