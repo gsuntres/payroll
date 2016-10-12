@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+
+    {{! default css, js }}
+    <link rel="stylesheet" href="/static/vendor/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/static/vendor/bootstrap/dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" href="/static/css/normalize.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="stylesheet" href="/static/css/common.css" />
+
+    <script type="text/javascript" src="/static/vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/vendor/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="/static/vendor/backbone/backbone-min.js"></script>
+    <script type="text/javascript" src="/static/vendor/backbone.marionette/lib/backbone.marionette.min.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+    <script type="text/javascript" src="/static/js/app.js"></script>
+
+    {{! any page related includes goes here }}
+    {{{block 'pageIncludes' }}}
+
+    {{! and undercore templates here}}
+    {{{block 'templates' }}}
+
+    <script id="dialog-template" type="text/template">
+      <div id="dialog-body" class="dialog-body"></div>
+    </script>
+
+  </head>
+  <body class="body">
+    <div class="header">
+      <div class="header-top">
+        <div class="wrapper">
+          <a href="/" alt="Home" class="image-logo">
+            <img src="/static/img/logo.png" />
+          </a>
+
+          {{! This main menus options !}}
+          <div class="main-nav">
+            <ul class="hlist">
+              <li><a href="/" class="main-nav-link {{#if home}}selected{{/if}}">Home</a></li>
+              <li><a href="/search-by-name" class="main-nav-link {{#if employees}}selected{{/if}}">Employees</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="side-menu">
+        {{! Depending on main menu's choise reveal the corresponding sub-menu !}}
+        {{#if home }}
+        <ul class="vlist">
+          <li><a href="/" class="side-nav-link {{#if welcome}}selected{{/if}}">Welcome</a></li>
+          <li><a href="/companies" class="side-nav-link {{#if companies}}selected{{/if}}">Companies</a></li>
+        </ul>
+        {{/if}}
+
+        {{#if employees }}
+        <ul class="vlist">
+          <li><a href="/search-by-name" class="side-nav-link {{#if searchByName}}selected{{/if}}">Search By Name</a></li>
+          <li><a href="/search-by-sin" class="side-nav-link {{#if searchBySin}}selected{{/if}}">Search By SIN</a></li>
+        </ul>
+        {{/if}}
+      </div>
+
+      {{! Main Page !}}
+      <div class="main-page">{{{body}}}</div>
+
+    </div>
+
+    <div id="modal-dialog"></div>
+  </body>
+</html>

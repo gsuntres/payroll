@@ -1,0 +1,12 @@
+{
+  "analytics": true,
+  "directory": "public/vendor",
+  "color": true,
+  "timeout": 60000,
+  "storage": {
+    "packages": "~/.bower/packages",
+    "registry": "~/.bower/registry",
+    "links": "~/.bower/links"
+  },
+  "interactive": true
+}

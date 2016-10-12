@@ -1,0 +1,28 @@
+<div class="companies-page"></div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    new APP.CompaniesObject({companies: APP.companies});
+  });
+</script>
+
+
+{{#contentFor 'pageIncludes'}}
+<link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+<script type="text/javascript" src="/static/js/home/companies.js"></script>
+<script type="text/javascript" src="/static/js/home/companies_data.js"></script>
+{{/contentFor}}
+
+{{#contentFor 'templates'}}
+
+{{! Company view !}}
+<script id="company-tpl" type="text/template">
+  <h3 class="clearfix"><%- name %></h3>
+</script>
+
+{{! Empty companies view!}}
+<script id="empty-template" type="text/template">
+  No Companies found!
+</script>
+
+{{/contentFor}}

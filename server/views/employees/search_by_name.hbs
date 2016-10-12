@@ -1,0 +1,45 @@
+<div class="search-page">
+  <div class="filter"></div>
+  <div class="results"></div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    new APP.SearchByNameObject({employees: APP.employees});
+  });
+</script>
+
+{{#contentFor 'pageIncludes'}}
+<link rel="stylesheet" type="text/css" href="/static/css/employee.css" />
+<script type="text/javascript" src="/static/js/employee/search_by_name.js"></script>
+<script type="text/javascript" src="/static/js/employee/search_by_name_data.js"></script>
+{{/contentFor}}
+
+{{#contentFor 'templates'}}
+
+{{! Filter view !}}
+<script id="filter-template" type="text/template">
+  <div class="clearfix">
+    <div class="filter-group">
+      <label for="name">Name:</label>
+      <input id="name" name="name" type="text" />
+    </div>
+  </div>
+
+  <input type="submit" href="javascript:void(0)" class="btn btn-sm" value="Search" />
+  <input type="button" href="javascript:void(0)" class="btn btn-sm reset" value="Reset" />
+</script>
+
+{{! Employee view !}}
+<script id="employee-template" type="text/template">
+  <h3 class="clearfix"><a><%- name %></a></h3>
+</script>
+
+{{! Empty companies view!}}
+<script id="empty-template" type="text/template">
+  No Companies found!
+</script>
+
+{{> dialog_employee}}
+
+{{/contentFor}}
